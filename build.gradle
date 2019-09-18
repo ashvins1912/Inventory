@@ -8,23 +8,31 @@
 version = project.version
 group = project.group
 
-apply plugin : 'java'
-apply plugin : 'application'
-apply plugin : 'eclipse'
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+}
 
 subprojects {
-    apply plugin: 'java'
-	apply plugin: 'eclipse'
-	
+    apply plugin : 'java'
+    apply plugin : 'application'
+    apply plugin : 'eclipse'
+
+
     repositories {
         mavenCentral()
 		 jcenter()
     }
-    dependencies {
-        testCompile group: 'junit', name: 'junit', version: '4.12'
-    }
+
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 
- 
+
 
