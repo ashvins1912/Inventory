@@ -1,0 +1,12 @@
+spring :
+  application: inventory
+
+server :
+  port: 1003
+
+mybatis:
+  typeAliasesPackage: inventory.model
+  mapperLocations: classpath*:**/mappers/*.xml
+
+
+  ## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)

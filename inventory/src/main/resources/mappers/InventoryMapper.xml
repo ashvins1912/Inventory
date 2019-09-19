@@ -1,0 +1,42 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="inventory.dao.InventoryDao">
+  <select id="getCurrentDate" resultType="Date">
+    select current_date
+  </select>
+
+  <select id="getProduct" resultType="Product" parameterType="Product">
+    select
+        product_id as id,
+        product_name as name,
+        product_brand as brand,
+        product_type as type,
+        product_mrp as productMrp,
+        selling_price as sellingPrice
+    from
+        nokia_inventory.product
+
+        <if test="id!=null">
+          where
+          product_id = ${id}
+        </if>
+        <if test="id == null">
+          order by product_id asc
+          limit 1
+        </if>
+  </select>
+
+  <insert id="insertInventory" parameterType="java.util.List">
+    insert into nokia_inventory.inventory (inventory_id, product_id, purchsed_price,
+    selling_price, inventory_status) values
+    <foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">
+      #{element.id},
+      #{element.productId},
+      #{element.purchasedPrice},
+      #{element.sellingPrice},
+      #{element.inventoryStatus}
+    </foreach>
+  </insert>
+</mapper>

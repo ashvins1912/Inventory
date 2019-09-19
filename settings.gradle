@@ -11,3 +11,4 @@ rootProject.name = 'Inventory'
 
 include ':products'
 include ':orders'
+include ':inventory'

@@ -21,7 +21,7 @@ buildscript {
 subprojects {
     apply plugin : 'java'
     apply plugin : 'application'
-    apply plugin : 'eclipse'
+    apply plugin : 'idea'
 
 
     repositories {
