@@ -1,23 +1,31 @@
-package product.model;
-
+package common.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import javax.validation.constraints.NotNull;
 import java.sql.Timestamp;
 
 public class ProductModel {
+
     private int product_id;
+    @NotNull
     private String product_name;
+    @NotNull
     private String product_brand;
+    @NotNull
     private String product_type;
 
     public ProductModel() {
     }
 
+    @NotNull
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
     private Timestamp best_before;
+    @NotNull
     private Double product_mrp;
+    @NotNull
     private Double selling_price;
+    @NotNull
     private Integer product_quantity;
 
     public ProductModel(int product_id, String product_name, String product_brand, String product_type, String best_before, Double product_mrp, Double selling_price, Integer product_quantity, Integer user_id) {
@@ -107,4 +115,6 @@ public class ProductModel {
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
+
 }
+

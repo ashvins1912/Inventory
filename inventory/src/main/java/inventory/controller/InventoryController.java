@@ -2,13 +2,14 @@ package inventory.controller;
 
 import inventory.model.Inventory;
 import inventory.service.InventoryService;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/inventory")
@@ -17,20 +18,26 @@ public class InventoryController {
     @Autowired
     private InventoryService inventoryService;
 
-    @GetMapping("/insert")
-    public ResponseEntity<Boolean> insertInventory() {
-        List<Inventory> inventoryList = new ArrayList<>();
+    @PostMapping("/insert")
+    public ResponseEntity insertInventory(@RequestBody List<Inventory> listOfInventories) {
+        Boolean inserted = false;
+        try {
+            inserted = inventoryService.insertInventory(listOfInventories);
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(ex.getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body("Sucess");
+    }
 
-        Inventory inventory = new Inventory();
-        inventory.setInventoryId(123);
-        inventory.setProductId(1);
-        inventory.setPurchasedPrice(30);
-        inventory.setSellingPrice(25);
-        inventory.setInventoryStatus("Available");
-        inventoryList.add(inventory);
-        Boolean inserted = inventoryService.insertInventory(inventoryList);
-
-        return ResponseEntity.ok(inserted);
+    @PostMapping("/update")
+    public ResponseEntity updateInventory(@RequestBody  Inventory  inventory) {
+        Boolean updated = false;
+        try {
+            updated = inventoryService.udpateInventory(inventory);
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(ex.getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body("Sucess");
     }
 
 }

@@ -13,4 +13,6 @@ public interface InventoryDao {
 
     int insertInventory(List<Inventory> inventoryList);
 
+    int udpateInventory(Inventory inventory);
+
 }

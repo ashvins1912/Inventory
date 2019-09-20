@@ -39,4 +39,13 @@
       #{element.inventoryStatus}
     </foreach>
   </insert>
+
+    <update id="udpateInventory"   parameterType="Inventory">
+        update  nokia_inventory.inventory set
+        product_id =  #{productId} ,
+        inventory_status = #{inventoryStatus} ,
+        purchased_on  = #{purchasedOn} ,
+        order_id  = #{orderId}
+        where inventory_id   = #{inventoryId}
+    </update>
 </mapper>

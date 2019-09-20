@@ -32,12 +32,19 @@ public class InventoryService {
                 }
             });
             map.keySet().forEach(key -> {
-                Product product = new Product();
-                product.setId(key);
+                    Product product = new Product();
+                    product.setId(key);
                 product.setQuantity(map.get(key));
                 productDao.updateProductQuantity(product);
             });
             return true;
         } else return false;
+    }
+
+    @Transactional
+    public boolean udpateInventory( Inventory inventory ) {
+      int inserted =  inventoryDao.udpateInventory(inventory);
+        return  inserted>0;
+
     }
 }

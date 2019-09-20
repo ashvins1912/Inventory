@@ -5,13 +5,8 @@ import org.slf4j.LoggerFactory;
 
 
 public abstract class ServiceHandler<T, R> {
-    private RootValidator<T> request;
+
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    public ServiceHandler(RootValidator<T> request) {
-
-        this.request = request;
-    }
 
     public R handleRequest(final T request) {
         R respone;

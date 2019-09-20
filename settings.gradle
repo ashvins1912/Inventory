@@ -12,3 +12,7 @@ rootProject.name = 'Inventory'
 include ':products'
 include ':orders'
 include ':inventory'
+include ':common'
+include ':exception-handler'
+
+project(':common').projectDir = "$rootDir/common/" as File

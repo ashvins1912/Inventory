@@ -4,13 +4,9 @@
 package product;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.RestController;
-import product.services.AddProductValidator;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
@@ -43,11 +39,6 @@ public class App {
                 .build();
     }
 
-    @Bean("validator")
-
-    public AddProductValidator validator() {
-        return  new AddProductValidator();
-    }
 
     @Bean
     public Docket apiDocket() {
