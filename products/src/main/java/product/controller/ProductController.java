@@ -1,10 +1,11 @@
 package product.controller;
 
+import common.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import product.common.ProductModel;
+
 import product.services.ProductServices;
 
 @RestController

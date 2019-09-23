@@ -17,4 +17,6 @@ public interface InventoryDao {
 
     List<Inventory> fetchAvailableInventory(Product product);
 
+    int updateInventoryStatus(Inventory inventory);
+
 }

@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 public abstract class ServiceHandler<T, R> {
 
+
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public R handleRequest(final T request) {

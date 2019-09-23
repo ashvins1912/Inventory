@@ -1,5 +1,6 @@
 package product.dao;
 
+import common.model.ProductModel;
 import org.jdbi.v3.core.Handle;
 import org.jdbi.v3.core.Jdbi;
 import org.jdbi.v3.core.statement.Update;
@@ -9,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import product.common.ProductModel;
 import product.model.QueryConstant;
 
 import javax.sql.DataSource;

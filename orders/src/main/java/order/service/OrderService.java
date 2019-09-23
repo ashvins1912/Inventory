@@ -65,4 +65,17 @@ public class OrderService {
         }
         return true;
     }
+
+
+    public boolean confirmOrder(int orderId){
+       final boolean status=  inventoryRestTemplate.markSoldInventory(orderId);
+        if(status){
+            Order updateOrder = new Order();
+            updateOrder.setId(orderId);
+            return orderDao.updateOrderStatus(updateOrder) ==1;
+
+        }
+        return status;
+    }
+
 }

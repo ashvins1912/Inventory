@@ -1,8 +1,9 @@
 package product.services;
 
+import common.model.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import product.common.ProductModel;
+
 
 
 @Service

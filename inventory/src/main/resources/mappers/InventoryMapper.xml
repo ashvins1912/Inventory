@@ -53,11 +53,17 @@
   </insert>
 
     <update id="udpateInventory"   parameterType="Inventory">
+    update  nokia_inventory.inventory set
+    product_id =  #{productId} ,
+    inventory_status = #{inventoryStatus} ,
+    purchased_on  = #{purchasedOn} ,
+    order_id  = #{orderId}
+    where inventory_id   = #{id}
+</update>
+
+    <update id="updateInventoryStatus"   parameterType="Inventory">
         update  nokia_inventory.inventory set
-        product_id =  #{productId} ,
-        inventory_status = #{inventoryStatus} ,
-        purchased_on  = #{purchasedOn} ,
-        order_id  = #{orderId}
-        where inventory_id   = #{id}
+        inventory_status = #{inventoryStatus}
+        where  order_id  = #{orderId}
     </update>
 </mapper>

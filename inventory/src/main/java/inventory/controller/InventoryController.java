@@ -42,7 +42,7 @@ public class InventoryController {
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(ex.getMessage());
         }
-        return ResponseEntity.status(HttpStatus.OK).body("Sucess");
+        return ResponseEntity.status(HttpStatus.OK).body("Success");
     }
 
     @PostMapping("/update")
@@ -52,7 +52,17 @@ public class InventoryController {
         } catch (Exception ex) {
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(ex.getMessage());
         }
-        return ResponseEntity.status(HttpStatus.OK).body("Sucess");
+        return ResponseEntity.status(HttpStatus.OK).body("Success");
     }
 
+
+    @GetMapping("/update-status/{order_id}")
+    public ResponseEntity updateStatusInventory(@PathVariable("order_id") int orderId) {
+        try {
+            inventoryService.sellInventory(orderId);
+        } catch (Exception ex) {
+            return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).body(ex.getMessage());
+        }
+        return ResponseEntity.status(HttpStatus.OK).body("Success");
+    }
 }

@@ -12,6 +12,17 @@
       #{orderAmount}, #{deliveryDate})
   </insert>
 
+  <update id="updateOrderStatus" parameterType="Order" >
+    update   nokia_inventory.orders set
+    order_status = #{orderStatus}
+    where order_id = #{id}
+  </update>
 
+  <select id="fetchInvoiceItem" parameterType="Order" resultType="LineItem">
+    Select p.product_name, p.selling_price, count(i.inventory_id) from nokia_inventory.product  p
+    inner join nokia_inventory.inventory i on i.product_id = p.product_id
+    and i.order_id = #{id} and i.inventory_status  = 'ORDERED'
+    group by p.product_name, p.selling_price
+  </select>
 
 </mapper>

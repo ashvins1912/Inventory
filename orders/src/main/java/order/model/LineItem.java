@@ -6,6 +6,7 @@ public class LineItem {
     private Integer id;
     private Integer inventoryId;
     private Integer productId;
+    private String productName;
     private Integer orderId;
     private Integer quantity;
     private Double deliveryFees;
@@ -93,4 +94,13 @@ public class LineItem {
     public void setItemStatus(String itemStatus) {
         this.itemStatus = itemStatus;
     }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
 }
