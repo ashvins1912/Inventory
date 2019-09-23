@@ -41,10 +41,12 @@ public class InventoryService {
         } else return false;
     }
 
-    @Transactional
     public boolean udpateInventory( Inventory inventory ) {
       int inserted =  inventoryDao.udpateInventory(inventory);
         return  inserted>0;
+    }
 
+    public List<Inventory> fetchAvailableInventory(Product product) {
+        return inventoryDao.fetchAvailableInventory(product);
     }
 }

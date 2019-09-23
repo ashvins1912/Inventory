@@ -1,4 +1,4 @@
-package inventory.model;
+package order.model;
 
 import java.util.Date;
 
@@ -9,7 +9,7 @@ public class Inventory {
     private Date purchasedOn;
 
     private Integer purchasedPrice;
-    private Integer sellingPrice;
+    private Double sellingPrice;
     private String inventoryStatus;
     private Integer  orderId ;
 
@@ -52,11 +52,11 @@ public class Inventory {
         this.purchasedPrice = purchasedPrice;
     }
 
-    public Integer getSellingPrice() {
+    public Double getSellingPrice() {
         return sellingPrice;
     }
 
-    public void setSellingPrice(Integer sellingPrice) {
+    public void setSellingPrice(Double sellingPrice) {
         this.sellingPrice = sellingPrice;
     }
 

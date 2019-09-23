@@ -1,0 +1,12 @@
+spring :
+  application: order
+
+server :
+  port: 1004
+
+mybatis:
+  typeAliasesPackage: order.model
+  mapperLocations: classpath*:**/mappers/*.xml
+
+service-path:
+  inventoryService: http://localhost:1003/

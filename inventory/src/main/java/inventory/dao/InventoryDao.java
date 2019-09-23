@@ -15,4 +15,6 @@ public interface InventoryDao {
 
     int udpateInventory(Inventory inventory);
 
+    List<Inventory> fetchAvailableInventory(Product product);
+
 }

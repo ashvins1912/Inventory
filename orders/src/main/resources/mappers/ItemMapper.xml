@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order.dao.ItemDao">
+
+  <insert id="insertItem" parameterType="LineItem">
+    insert into nokia_inventory.ordered_item (product_id, inventory_id, order_id,
+    item_status, quantity, purchased_on, delievry_fee, selling_price) values
+    <foreach collection="list" item="element" index="index" open="(" separator="),("  close=")">
+      #{element.productId},
+      #{element.inventoryId},
+      #{element.orderId},
+      #{element.itemStatus},
+      #{element.quantity},
+      #{element.purchasedOn},
+      #{element.deliveryFees},
+      #{element.sellingPrice}
+    </foreach>
+  </insert>
+
+</mapper>

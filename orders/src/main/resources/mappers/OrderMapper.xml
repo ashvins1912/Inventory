@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order.dao.OrderDao">
+
+  <insert id="createOrder" parameterType="Order"
+    useGeneratedKeys="true" keyProperty="id" keyColumn="order_id">
+    insert into nokia_inventory.orders (user_id, order_status, order_placed_on,
+    shipping_address, order_amount, delivery_date) values (
+      #{userId}, #{orderStatus}, #{orderPlacedDate}, #{shippingAddressId},
+      #{orderAmount}, #{deliveryDate})
+  </insert>
+
+
+
+</mapper>

@@ -1,26 +1,27 @@
 package order.contoller;
 
+import java.util.Date;
+import order.constant.OrderStatus;
+import order.model.Order;
+import order.service.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
+@RequestMapping("/order")
 public class OrderController {
-    @GetMapping(value = "/hello")
-    ResponseEntity<String> getFirstCall(){
-        return ResponseEntity.ok("Hello order");
-    }
+    @Autowired
+    private OrderService orderService;
 
-    @GetMapping(value = "/call")
-    ResponseEntity<String> callProduct(){
-        RestTemplate restTemplate = new RestTemplate();
-        String fooResourceUrl
-                = "http://localhost:1002/hello";
-        ResponseEntity<String> response
-                = restTemplate.getForEntity(fooResourceUrl, String.class);
-       return ResponseEntity.ok().body(response).getBody();
+    @PostMapping("/create")
+    ResponseEntity creatOrder(@RequestBody Order order) {
+        order.setUserId(1);
+        orderService.createOrder(order);
+        return ResponseEntity.ok(order);
     }
 
 }

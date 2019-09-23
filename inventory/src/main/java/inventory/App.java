@@ -38,8 +38,8 @@ public class App {
         return DataSourceBuilder.create()
                 .driverClassName("com.mysql.cj.jdbc.Driver")
                 .url("jdbc:mysql://localhost:3306/nokia_inventory?useSSL=false")
-                .username("root")
-                .password("root")
+                .username("nokia")
+                .password("nokia")
                 .build();
     }
     @Bean

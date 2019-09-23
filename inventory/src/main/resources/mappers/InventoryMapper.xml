@@ -3,9 +3,6 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="inventory.dao.InventoryDao">
-  <select id="getCurrentDate" resultType="Date">
-    select current_date
-  </select>
 
   <select id="getProduct" resultType="Product" parameterType="Product">
     select
@@ -28,6 +25,21 @@
         </if>
   </select>
 
+  <select id="fetchAvailableInventory" parameterType="Product" resultType="Inventory">
+    select
+        inventory_id as id,
+        product_id as productId,
+        purchsed_price as purchasedPrice,
+        p.selling_price as sellingPrice,
+        inventory_status as inventoryStatus
+    from
+        nokia_inventory.inventory i
+        inner join nokia_inventory.product p on p.product_id = i.product_id and
+    where product_id = #{id} and inventory_status = 'Available'
+    order by created_on
+    limit #{quantity}
+  </select>
+
   <insert id="insertInventory" parameterType="java.util.List">
     insert into nokia_inventory.inventory (inventory_id, product_id, purchsed_price,
     selling_price, inventory_status) values
@@ -46,6 +58,6 @@
         inventory_status = #{inventoryStatus} ,
         purchased_on  = #{purchasedOn} ,
         order_id  = #{orderId}
-        where inventory_id   = #{inventoryId}
+        where inventory_id   = #{id}
     </update>
 </mapper>
