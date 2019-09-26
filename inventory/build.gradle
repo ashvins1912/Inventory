@@ -20,8 +20,8 @@ configurations {
 }
 
 
-
 dependencies {
+    
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
@@ -33,7 +33,6 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.10'
     annotationProcessor 'org.projectlombok:lombok:1.18.10'
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0")
-
     compile project (":common")
 }
 

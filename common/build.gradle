@@ -9,11 +9,11 @@
 plugins {
     id 'org.springframework.boot' version '2.1.8.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'java'
     id 'java-library'
 }
-group = 'com.common'
-version = '0.0.1-SNAPSHOT'
+
+project.version = '1.0'
+group = project.group
 sourceCompatibility = '1.8'
 repositories {
     mavenCentral()
