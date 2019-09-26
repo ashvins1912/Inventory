@@ -35,5 +35,5 @@ dependencies {
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0")
     compile project (":common")
 }
-
+archivesBaseName = 'inventory.jar'
 mainClassName = 'inventory.App'

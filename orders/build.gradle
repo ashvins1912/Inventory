@@ -38,4 +38,5 @@ dependencies {
 
 }
 
+archivesBaseName = 'orders.jar'
 mainClassName = 'order.App'
